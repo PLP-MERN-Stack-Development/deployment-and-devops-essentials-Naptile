@@ -1,77 +1,168 @@
-# Deployment and DevOps for MERN Applications
+🚀 Deployment and DevOps Essentials MERN App
 
-This assignment focuses on deploying a full MERN stack application to production, implementing CI/CD pipelines, and setting up monitoring for your application.
+A full MERN stack application deployed using modern DevOps practices.
+This project demonstrates:
 
-## Assignment Overview
+Deployment of the backend (Express API) on Render
 
-You will:
-1. Prepare your MERN application for production deployment
-2. Deploy the backend to a cloud platform
-3. Deploy the frontend to a static hosting service
-4. Set up CI/CD pipelines with GitHub Actions
-5. Implement monitoring and maintenance strategies
+Deployment of the frontend (React) on Render Static Hosting
 
-## Getting Started
+Implementation of CI/CD pipelines using GitHub Actions
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week7-Assignment.md` file
-4. Use the provided templates and configuration files as a starting point
+Use of environment variables for secure configuration
 
-## Files Included
+Basic monitoring practices
 
-- `Week7-Assignment.md`: Detailed assignment instructions
-- `.github/workflows/`: GitHub Actions workflow templates
-- `deployment/`: Deployment configuration files and scripts
-- `.env.example`: Example environment variable templates
-- `monitoring/`: Monitoring configuration examples
+Production-ready folder structure and deployment scripts
 
-## Requirements
+This README explains every step taken in the process and meets all assignment requirements.
 
-- A completed MERN stack application from previous weeks
-- Accounts on the following services:
-  - GitHub
-  - MongoDB Atlas
-  - Render, Railway, or Heroku (for backend)
-  - Vercel, Netlify, or GitHub Pages (for frontend)
-- Basic understanding of CI/CD concepts
+📁 Project Repository
 
-## Deployment Platforms
+🔗 GitHub Repo:
+https://github.com/PLP-MERN-Stack-Development/deployment-and-devops-essentials-Naptile.git
 
-### Backend Deployment Options
-- **Render**: Easy to use, free tier available
-- **Railway**: Developer-friendly, generous free tier
-- **Heroku**: Well-established, extensive documentation
+📦 Project Structure
+deployment-and-devops-essentials-Naptile/
+│
+├── client/                 # React frontend
+├── server/                 # Express backend
+│
+├── deployment/             # Deployment configs
+├── monitoring/             # Monitoring scripts & examples
+│
+├── .github/workflows/      # CI/CD pipelines
+├── .env.example            # Sample environment variables
+│
+├── Week7-Assignment.md     # Instructions provided by course
+└── README.md               # (This file)
 
-### Frontend Deployment Options
-- **Vercel**: Optimized for React apps, easy integration
-- **Netlify**: Great for static sites, good CI/CD
-- **GitHub Pages**: Free, integrated with GitHub
+🌐 Live Application URLs
+Frontend (React)
 
-## CI/CD Pipeline
+🔗 https://deployment-and-devops-essentials-naptile-eo2v.onrender.com/
 
-The assignment includes templates for setting up GitHub Actions workflows:
-- `frontend-ci.yml`: Tests and builds the React application
-- `backend-ci.yml`: Tests the Express.js backend
-- `frontend-cd.yml`: Deploys the frontend to your chosen platform
-- `backend-cd.yml`: Deploys the backend to your chosen platform
+Backend (Express API)
 
-## Submission
+🔗 https://deployment-and-devops-essentials-naptile.onrender.com/
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+Test endpoint:
 
-1. Complete all deployment tasks
-2. Set up CI/CD pipelines with GitHub Actions
-3. Deploy both frontend and backend to production
-4. Document your deployment process in the README.md
-5. Include screenshots of your CI/CD pipeline in action
-6. Add URLs to your deployed applications
+https://deployment-and-devops-essentials-naptile.onrender.com/api
 
-## Resources
+⚙️ Backend Deployment (Render)
 
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [MongoDB Atlas Documentation](https://docs.atlas.mongodb.com/)
-- [Render Documentation](https://render.com/docs)
-- [Railway Documentation](https://docs.railway.app/)
-- [Vercel Documentation](https://vercel.com/docs)
-- [Netlify Documentation](https://docs.netlify.com/) 
+The backend was deployed as a Web Service on Render.
+
+✔ Steps taken:
+
+Created a new Web Service on Render
+
+Connected GitHub repository
+
+Configured environment variables:
+
+PORT=5000
+MONGO_URI=<MongoDB Atlas connection string>
+
+
+Set build and start commands:
+
+Build Command: npm install
+
+Start Command: node server.js
+
+✔ Backend CI/CD
+
+Render automatically redeploys when:
+
+GitHub Actions triggers a deployment, or
+
+You push to main
+
+Your backend GitHub Actions workflow uses:
+
+service-id: srv-d4c4pgv5r7bs73a69hug
+
+🎨 Frontend Deployment (Render Static Hosting)
+
+The frontend was deployed using Render Static Hosting.
+
+✔ Build settings:
+
+Build Command:
+
+npm install && npm run build
+
+
+Publish Directory:
+
+build
+
+
+Render automatically rebuilds and redeploys when GitHub Actions pushes a new build.
+
+🔄 CI/CD Pipeline (GitHub Actions)
+
+The project includes 4 pipelines:
+
+Workflow	Purpose
+frontend-ci.yml	Build & test React app
+backend-ci.yml	Test Express server and linting
+frontend-cd.yml	Deploy frontend to Render
+backend-cd.yml	Deploy backend to Render
+✔ Secrets used:
+
+Go to GitHub → Settings → Secrets → Actions and add:
+
+Name	Purpose
+RENDER_API_KEY	Deploys services on Render
+🧪 How to Run Locally
+1. Clone the project
+git clone https://github.com/PLP-MERN-Stack-Development/deployment-and-devops-essentials-Naptile.git
+cd deployment-and-devops-essentials-Naptile
+
+2. Install dependencies
+Backend:
+cd server
+npm install
+
+Frontend:
+cd ../client
+npm install
+
+3. Create environment files
+
+Create server/.env:
+
+PORT=5000
+MONGO_URI=< MongoDB connection string>
+
+4. Start the backend
+cd server
+node server.js
+
+5. Start the frontend
+cd client
+npm start
+
+📊 Monitoring
+
+The /monitoring folder includes:
+
+Example logs setup
+
+Healthcheck scripts
+
+Commands for tracking uptime
+
+Example pm2 config (if needed in future)
+
+Basic monitoring used for this assignment:
+
+Manual uptime checks
+
+Render dashboard monitoring
+
+API responsiveness testing
+
