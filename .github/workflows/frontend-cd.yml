@@ -1,0 +1,19 @@
+name: Frontend CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to Render
+        uses: render-examples/deploy-action@v1
+        with:
+          api-key: ${{ secrets.RENDER_API_KEY }}
+          service-id: srv-d4c51abipnbc7397k830
